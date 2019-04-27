@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>jFree画图入门 · S2J&#39;s Studio</title>
+    <title>JavaScript学习 · S2J&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">S2J&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">jFree画图入门</a>
+                <a href="#" class="post-name">JavaScript学习</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            jFree画图入门
+            JavaScript学习
             <!-- 404 -->
             
         </h1>
@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">636</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">411</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -395,43 +395,22 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>由于离散数学的实践安排，需要学着用java编写程序进行图形的输出<a id="more"></a>，题目如下：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;考虑x(t)=-2tsin(t2)，0≤t≤8，从0开始，以△t=0.01、0.02、0.04、0.08、0.1、0.25、0.5、1为间隔，分别绘制x(t)的离散时间信号。每个离散样本点用’*’显示，程序采用JAVA或C语言实现(可采用第三方库函数)。对于每个△t，观察连续时间信号信息损失的情况，编制程序。</p>
-<h2 id="观察题目要求"><a href="#观察题目要求" class="headerlink" title="观察题目要求"></a>观察题目要求</h2><p>　　题目需要在不同的Δt时表现不同的函数图像，首先要画出基本函数图形。</p>
+        <h2 id="本周未"><a href="#本周未" class="headerlink" title="本周未"></a>本周未</h2><a id="more"></a>
 <blockquote>
-<p>图形的绘制</p>
+<p>基本概念</p>
 </blockquote>
-<p>先要会用第三方包jfree，<a href="https://sourceforge.net/projects/jfreechart/files/" target="_blank" rel="noopener">安装地址</a>。<br>安装并且导入到在eclipse中建立的项目后便可以开始着手编程了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;基本类型方面大致与java类似，本篇文章将根据学习进度持续更新一些不同之处。</p>
+<p>同java一样条件控制语句有时候可以不用花括号来将他包裹，但为了代码意图清晰度，建议全部用代码块，哪怕只有一条语句。<br>ECMScript的变量没有int、String、double等数据类型的声明，只需要用var便可自动定义。</p>
+<p>基本数据类型有五种：Undefined、Null、Boolean、Number、String和一种复杂数据类型Object，<br>可使用typeof来检测数据类型。<br>数据类型|含义<br>—|:–:|—:<br>Undefined| 使用var但并未初始化<br>Null|观察对象是否保存对象<br>Number|数值类型<br>String|字符串<br>Object|对象</p>
+<p>这里要注意Number里有一个特殊类型 NaN——非数值，两大特点：1，任何涉及NaN的操作都返回NaN<br>2.NaN与任意值不相等，包括NaN。</p>
+<p>为了准确的表示你想表示的进制，一般会使用parseInt(“数字”,进制)来确定数字进制，建议十进制也这样写。</p>
 <blockquote>
-<p>jfree的一些接口方法的使用</p>
+<p>语句方面</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">XYSeries series = new XYSeries(&quot;xySeries&quot;);//创建XYSeries对象</span><br><span class="line">		for (double x = 0; x &lt;8;) //写出函数定义域</span><br><span class="line">        &#123;</span><br><span class="line">			double y =  ((-2)*x*Math.sin(x*x));//写出函数式</span><br><span class="line">			series.add(x, y);  //使用add方法加入到新建对象series中</span><br><span class="line">			x=x+t;  //结尾加上△t的变化范围</span><br><span class="line">		&#125;</span><br><span class="line">		XYSeriesCollection dataset = new XYSeriesCollection(); //新建XYSeriesCollection对象</span><br><span class="line">		dataset.addSeries(series);// 把之前series对象使用方法加入到dataset中</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>图像显示设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">JFreeChart chart = ChartFactory.createXYLineChart(</span><br><span class="line">		&quot;Δt=&quot;+t, // 图像名</span><br><span class="line">		&quot;x&quot;, // x 轴名</span><br><span class="line">		&quot;x(t)&quot;, // y 轴名</span><br><span class="line">		dataset // data</span><br><span class="line">		);  //新建对象 调用构造函数</span><br><span class="line">XYPlot plot = (XYPlot)chart.getPlot();</span><br><span class="line">XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();</span><br><span class="line">renderer.setSeriesLinesVisible(0, false);// 设置连线不可见</span><br><span class="line">plot.setRenderer(renderer); ////将修改后的属性值保存到图中</span><br><span class="line">ChartFrame frame = new ChartFrame(&quot;my picture&quot;, chart);</span><br><span class="line">frame.pack();//设置窗体最佳大小</span><br><span class="line">frame.setVisible(true);//设置可见</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p><img src="/2019/04/27/jfree/离散函数.png" alt="图像如下"></p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>按照题目可设置简单的输入，方便形成不同数值的Δt所构成的图形。</p>
-<h2 id="参考API"><a href="#参考API" class="headerlink" title="参考API"></a>参考API</h2><p>XYSeries类，它代表了在所述形式的零个或多个数据项（x，y）的序列。默认情况下，该系列中的数据项都按升序排列由x值，并重复允许的x值。无论是排序和复制缺省值可以在构造函数中被改变。 Y值可以表示为空值代表缺失值。</p>
-<p>XYSeriesCollection类有类似父类AbstractIntervelDataset，AbstractXYDatset，AbstractSeriesDataset和AbstractDataset。一些在这个类中的方法属于这个类的父类。</p>
-<p>具体API请见：<a href="https://www.yiibai.com/jfreechart/jfreechart_referenced_apis.html" target="_blank" rel="noopener">JFreeChart参考API</a></p>
-<table>
-<thead>
-<tr>
-<th>构造方法</th>
-<th style="text-align:center">构造方法内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>XYSeries(java.lang.Comparable key)</td>
-<td style="text-align:center">该构造函数创建一个新的空系列。</td>
-</tr>
-<tr>
-<td>XYSeriesCollection(XYSeries xyseries)</td>
-<td style="text-align:center">它构建了一个数据集，并用一个系列的填充</td>
-</tr>
-</tbody>
-</table>
+<p>多了一个新的语句 with——为了简化同一个对象的工作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var qs =location.search.substring(1);</span><br><span class="line">var url=location.href;</span><br></pre></td></tr></table></figure></p>
+<p>使用with后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">with(location)&#123;</span><br><span class="line">    var qs=search.substring(1);</span><br><span class="line">    var url=href;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>大量使用会导致性能下降，开发大型程序时不建议使用。</p>
+<p>由于ECMScript 不能进行方法的重载，所以一般都使用arguments对象和参数一起使用来代替重载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function doAdd(num1,num2)&#123;</span><br><span class="line">if(argument.length==1)&#123;</span><br><span class="line">    alert(num1+10);</span><br><span class="line">&#125;else if(arguments.length==2)&#123;</span><br><span class="line">    alert (argument[0]+num2);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
     </article>
     <!-- license  -->
@@ -440,17 +419,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/04/27/jsp01/" title="JavaScript学习">
-                    <div class="nextTitle">JavaScript学习</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/04/20/third/" title="一周总结">
-                    <div class="prevTitle">一周总结</div>
+                <a href="/2019/04/27/jfree/" title="jFree画图入门">
+                    <div class="prevTitle">jFree画图入门</div>
                 </a>
             
         </li>
@@ -569,7 +543,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#观察题目要求"><span class="toc-number">1.</span> <span class="toc-text">观察题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-number">2.</span> <span class="toc-text">补充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考API"><span class="toc-number">3.</span> <span class="toc-text">参考API</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本周未"><span class="toc-number">1.</span> <span class="toc-text">本周未</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
