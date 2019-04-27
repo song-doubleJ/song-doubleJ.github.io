@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">412</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">432</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -400,8 +400,8 @@ height:50vh;
 <p>基本概念</p>
 </blockquote>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;基本类型方面大致与java类似，本篇文章将根据学习进度持续更新一些不同之处。</p>
-<p>同java一样条件控制语句有时候可以不用花括号来将他包裹，但为了代码意图清晰度，建议全部用代码块，哪怕只有一条语句。<br>ECMScript的变量没有int、String、double等数据类型的声明，只需要用var便可自动定义。</p>
-<p>基本数据类型有五种：Undefined、Null、Boolean、Number、String和一种复杂数据类型Object，<br>可使用typeof来检测数据类型。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;同java一样条件控制语句有时候可以不用花括号来将他包裹，但为了代码意图清晰度，建议全部用代码块，哪怕只有一条语句。<br>ECMScript的变量没有int、String、double等数据类型的声明，只需要用var便可自动定义。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;基本数据类型有五种：Undefined、Null、Boolean、Number、String和一种复杂数据类型Object，<br>可使用typeof来检测数据类型。</p>
 <table>
 <thead>
 <tr>
@@ -432,12 +432,12 @@ height:50vh;
 </tr>
 </tbody>
 </table>
-<p>这里要注意Number里有一个特殊类型 NaN——非数值，两大特点：1，任何涉及NaN的操作都返回NaN<br>2.NaN与任意值不相等，包括NaN。</p>
-<p>为了准确的表示你想表示的进制，一般会使用parseInt(“数字”,进制)来确定数字进制，建议十进制也这样写。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;这里要注意Number里有一个特殊类型 NaN——非数值，两大特点：1，任何涉及NaN的操作都返回NaN<br>2.NaN与任意值不相等，包括NaN。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;为了准确的表示你想表示的进制，一般会使用parseInt(“数字”,进制)来确定数字进制，建议十进制也这样写。</p>
 <blockquote>
 <p>语句方面</p>
 </blockquote>
-<p>多了一个新的语句 with——为了简化同一个对象的工作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var qs =location.search.substring(1);</span><br><span class="line">var url=location.href;</span><br></pre></td></tr></table></figure></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;多了一个新的语句 with——为了简化同一个对象的工作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var qs =location.search.substring(1);</span><br><span class="line">var url=location.href;</span><br></pre></td></tr></table></figure></p>
 <p>使用with后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">with(location)&#123;</span><br><span class="line">    var qs=search.substring(1);</span><br><span class="line">    var url=href;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>大量使用会导致性能下降，开发大型程序时不建议使用。</p>
 <p>由于ECMScript 不能进行方法的重载，所以一般都使用arguments对象和参数一起使用来代替重载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function doAdd(num1,num2)&#123;</span><br><span class="line">if(argument.length==1)&#123;</span><br><span class="line">    alert(num1+10);</span><br><span class="line">&#125;else if(arguments.length==2)&#123;</span><br><span class="line">    alert (argument[0]+num2);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
