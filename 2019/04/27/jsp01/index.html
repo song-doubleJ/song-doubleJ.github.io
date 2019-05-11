@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">597</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -396,8 +396,8 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h2 id="每周更新"><a href="#每周更新" class="headerlink" title="每周更新"></a>每周更新</h2><a id="more"></a>
-<blockquote>
-<p>基本概念</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><blockquote>
+<p>基础</p>
 </blockquote>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;基本类型方面大致与java类似，本篇文章将根据学习进度持续更新一些不同之处。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;同java一样条件控制语句有时候可以不用花括号来将他包裹，但为了代码意图清晰度，建议全部用代码块，哪怕只有一条语句。<br>ECMScript的变量没有int、String、double等数据类型的声明，只需要用var便可自动定义。</p>
@@ -448,6 +448,62 @@ height:50vh;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function buildUrl()&#123;</span><br><span class="line">  var qs=&quot;?debug=true&quot;;</span><br><span class="line">  with(location)&#123;</span><br><span class="line">    var url= href+qs;</span><br><span class="line">  &#125;</span><br><span class="line">  return url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在这里调用了location中的href这个本不在buildUrl作用域的变量，因为使用with接收了location这个对象，就类似与java中location.href</p>
 <p>还有一个很特殊的就是JavaScript中如果没用var声明，将会自动归为全局变量，所以为了避免混淆，一般最好声明变量，而且访问局部变量的速度也要比全局变量来的快得多。</p>
+<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p>有点类似与java中的对象引用</p>
+<p>引用类型：Object，Array，Date，Function，RegExp</p>
+<blockquote>
+<p>Object</p>
+</blockquote>
+<p>这里出现了两种引用方式：</p>
+<p>1、常见的new方法。就像那个笑话：没对象，我们就new一个出来。</p>
+<p>2、类似于java对象的定义，叫对象字面量表示法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var person =&#123;</span><br><span class="line">  name:&quot;sjj&quot;,</span><br><span class="line">  age:20   //为对象属性赋值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为我们的属性名可以使用关键词和保留字，所以除了和java里那样使用点表示法访问参数，<br>也可以使用方括号语法，方括号也可以通过变量来访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person.name;//点表示法</span><br><span class="line">person[&quot;name&quot;];//方括号语法</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Array</p>
+</blockquote>
+<p>数组类型，有别于java的是，它并不规定保存的类型，这就很无赖，第一个可以存数字，第二个可以存字符串，第三个甚至可以放对象，连大小也可以动态调整，可以说是非常随意了。</p>
+<p>同样创建数组的方法也有两种：</p>
+<p>1、 Array构造方法</p>
+<p>2、 数组字面量表达法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var color= new Array ;//Array构造方法</span><br><span class="line">var colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];//数组字面量表达法</span><br></pre></td></tr></table></figure></p>
+<p>前面提到了数组的长度可以动态调整，只需要手动设置length值便可以改变大小。</p>
+<p>也提供了检测是否为数组的方法:isArray,转换为字符串：toString(),<br>一些方法</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">表达</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否为数组</td>
+<td style="text-align:center">isArray</td>
+</tr>
+<tr>
+<td>转换为字符串</td>
+<td style="text-align:center">toString()</td>
+</tr>
+<tr>
+<td>字符串间隔方式的改变</td>
+<td style="text-align:center">join()</td>
+</tr>
+<tr>
+<td>栈方法</td>
+<td style="text-align:center">push()将数据推入数组最后并返回、pop()将数组最后一项移除并返回</td>
+</tr>
+<tr>
+<td>队列方法</td>
+<td style="text-align:center">push()将数据推入数组最后并返回、shift()将数组第一项移除并返回、unshift()在数组前端插入项并返回</td>
+</tr>
+<tr>
+<td>重排序方法</td>
+<td style="text-align:center">reverse()反转顺序、sort()按升序排序</td>
+</tr>
+</tbody>
+</table>
+<p>同时使用栈方法和队列方法可以很方便的在数组插入移除数据。</p>
+<p>接下来介绍一个强大的数组方法，可以在任意位置删除、插入、替换项，极其方便。</p>
+<p>splice(起始位置,删除项数,插入项)</p>
+<p>查找项的位置： indexOf(查找项,查找起点)、lastindexOf(查找项,查找起点)</p>
 
     </article>
     <!-- license  -->
@@ -585,7 +641,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#每周更新"><span class="toc-number">1.</span> <span class="toc-text">每周更新</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#每周更新"><span class="toc-number">1.</span> <span class="toc-text">每周更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">2.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用类型"><span class="toc-number">3.</span> <span class="toc-text">引用类型</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -664,9 +720,26 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 6
+        Total : 7
         </div>
         <!-- search  -->
         
@@ -676,6 +749,20 @@ top:50vh;
     
     
     
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/05/11/jwb/">sjj的JavaWeb大作业</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
