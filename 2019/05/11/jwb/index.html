@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">616</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.6k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -416,6 +416,25 @@ height:50vh;
 </blockquote>
 <p>servlet和jsp页面都写好了，就要在web.xml中部署servlet。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">   &lt;servlet-name&gt;Login&lt;/servlet-name&gt;//为servlet起名</span><br><span class="line">   &lt;servlet-class&gt;cn.Loginservlet.Login&lt;/servlet-class&gt;//写你的servlet的文件地址</span><br><span class="line"> &lt;/servlet&gt;</span><br><span class="line"> &lt;servlet-mapping&gt;</span><br><span class="line">   &lt;servlet-name&gt;Login&lt;/servlet-name&gt;</span><br><span class="line">   &lt;url-pattern&gt;/login&lt;/url-pattern&gt;//写  /+表单action填入内容，</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure></p>
 <p>这样就完成了表单登录并由servlet处理后进行跳转的操作，后面将更新首页设置和其他操作。</p>
+<blockquote>
+<p>连接数据库</p>
+</blockquote>
+<p>先利用MySQL建立一个数据库，加入用户表t_user添加一个用户将用户名密码设定好，<br>这时候要导入一个mysql的jar包（<a href="https://blog.csdn.net/milan__kundera/article/details/81182757" target="_blank" rel="noopener">下载教程</a>）<br>把他移入到lib目录下。具体许多操作可自行度娘或者谷歌。</p>
+<h1 id="捷径和陷阱"><a href="#捷径和陷阱" class="headerlink" title="捷径和陷阱"></a>捷径和陷阱</h1><h3 id="捷径"><a href="#捷径" class="headerlink" title="捷径"></a>捷径</h3><p>这里讲一些捷径或者bug的解决方法。<br>在代码内重复度出现的片段可以考虑封装成为类，像数据库的连接、一些用户的导入、字符判断都可以自己封装这样下次调用就会很轻松。</p>
+<p>2、 前端设计在上学期对我来说是一个很麻烦的步骤，因为我排版很差，开始看网上教程有个jquery—easyui 但老师说这个过时了，很多网站并不兼容，于是我把前端推到重新开始写（当时也是崩溃）。但后来接触到了bootstrap，发现了懒人前端设计的妙招，它的栅格系统可以很明显的把页面区分开来，就像是一张表格分为各种格子，然后往里面填入div就好了，bootstrap里面还有一些组件的使用，直接复制粘贴就好了，懒人亲测很有效。</p>
+<p>3、但凡用到java的地方调试（debug）都是一个很好的找出错误的选择</p>
+<h3 id="陷阱"><a href="#陷阱" class="headerlink" title="陷阱"></a>陷阱</h3><p>这里具体列出我碰到令人头疼的一些bug，或容易忽略的地方。</p>
+<p>1、数据库用完不关闭，这样内存上会没有得到释放，容易出错。</p>
+<p>2、分不清一些基本的方法的具体用处：request.getParameter() 用在servlet从jsp页面获取到信息，反之从servlet传给jsp则有许多方法，request.setAttribute或者放在session中传递给前端页面，但建议不要放在session中，因为session中的占用内存太多容易崩溃。</p>
+<p>3、重定向和请求分派（转发）的区别：</p>
+<p>重定向一般适用于页面跳转但却不需要传递request中的值，而转发的话会将转发内容传递到前端页面，所以重定向之后接收不到request里的值是很正常的。</p>
+<p>4、差一条java知识点 用于循环判断的 xxx.next（）使用一次少一次，举个例子，之前我为了调试，在判断循环之前打印了一次xxx.next（） 然后诡异的事情发生了，明明控制台显示为true但debug却进不去while循环，这就是因为使用了一次，恰好我的next()只有一次，所以直接跳过循环。（本人觉得有点坑爹，所以放出来了）</p>
+<p>5、在jsp页面使用el表达式千万记得贴上el需要的标签&lt;%@taglib prefix=”c” uri=”<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> %&gt;（本人因为这个标签没贴，导致我一个卡了一下午没找到错误）只要页面有使用el表达式就要记得把这个加上去，切记切记。</p>
+<p>6、 从jsp页面传值回来发现乱码，网上有好多解决方案：这里贴一个最简洁的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(&quot;utf-8&quot;); //1</span><br><span class="line">		response.setContentType(&quot;text/html;charset=utf-8&quot;); //2</span><br><span class="line">		response.setCharacterEncoding(&quot;utf-8&quot;); //3</span><br></pre></td></tr></table></figure></p>
+<p>把上面的语句加在servlet的相应响应方法下就可以轻松解决乱码问题。</p>
+<p>7、 servlet里语句传给sql时明明控制台未出现乱码，但数据库却不能接收，这个问题我今天下午刚遇到，网上找了各种解决方案但都不管用，因为我根本不知道是传给sql时编码不匹配造成的，后来在以为大四学长的帮助下搞了一个小时一步步调试才找到，下面是解决方案。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private String dbUrl=&quot;jdbc:mysql://localhost:3306/db_studentInfo?useUnicode=true&amp;characterEncoding=gb2312&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>在数据库连接的后面加上？和后面的内容，就可以解决莫名其妙的无法连接问题，但原理我还没找到，先解决了再说。</p>
+<p>8、 记得每创一个servlet要在xml上建立相应路径和包。</p>
 
     </article>
     <!-- license  -->
@@ -548,7 +567,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#页面登录功能"><span class="toc-number">1.</span> <span class="toc-text">页面登录功能</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#页面登录功能"><span class="toc-number">1.</span> <span class="toc-text">页面登录功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#捷径和陷阱"><span class="toc-number"></span> <span class="toc-text">捷径和陷阱</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#捷径"><span class="toc-number">0.1.</span> <span class="toc-text">捷径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#陷阱"><span class="toc-number">0.2.</span> <span class="toc-text">陷阱</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
