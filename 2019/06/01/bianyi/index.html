@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>First · S2J&#39;s Studio</title>
+    <title>编译原理 · S2J&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">S2J&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">First</a>
+                <a href="#" class="post-name">编译原理</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            First
+            编译原理
             <!-- 404 -->
             
         </h1>
@@ -266,12 +266,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">290</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.4k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/02/28</span>
+                    <span class="post-intro-time">2019/06/01</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,23 +395,38 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>这几天在我哥的引导下开始了搭建自己的个人博客，感觉不是特别难，就是懒的开头，当然最终在我哥的催促下完成了这项任务，觉的挺有成就感的。<br><a id="more"></a></p>
-<h2 id="搭建博客时遇到的一些事情"><a href="#搭建博客时遇到的一些事情" class="headerlink" title="搭建博客时遇到的一些事情"></a>搭建博客时遇到的一些事情</h2><blockquote>
-<p>初次尝试</p>
+        <h2 id="大作业专栏"><a href="#大作业专栏" class="headerlink" title="大作业专栏"></a>大作业专栏</h2><a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>杂谈</p>
 </blockquote>
-<p>　　第一次是我哥让我创建才来的，那个时候对Github也一点都不了解，在他给我的许多教程的堆积下才让我这个萌新成功把git和hexo安装好，但后来搞错文件夹了所以一直没能成功搭建自己的个人博客。随文附送是我哥的<a href="http://www.2ming.me/" target="_blank" rel="noopener">博客</a>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;编译原理也叫龙书，讲实话刚拿到这本书的时候，还觉得有点酷炫，因为看起来像一本魔法书，然后听老师一说挂科率，瞬间不敢轻视，挂科率和离散数学、数字电路一样多。然后各种句型、句柄、文法、llR、SLR等等名词概念洗刷着我堵塞的大脑，上课打一个瞌睡就忽然听不懂了。得课后疯狂看别人的博客去补，所以当老师布置编译原理的实践作业的时候，我超级害怕，担心完不成，因为我以为老师会让我们去写一个语言的编译器，可以说是还没看到题目就害怕了，然后得知题目的我释然了。</p>
 <blockquote>
-<p>小故事  </p>
+<p>题目</p>
 </blockquote>
-<p>因为之前文件夹搞错了然后一直没搭好后来选择自己在b站搜索视频教程，最终找到了这个小姐姐的<a href="https://space.bilibili.com/20854481?spm_id_from=333.788.b_765f7570696e666f.1" target="_blank" rel="noopener">视频</a>个人觉得挺适合新手来看看，较之枯燥的文字教程。</p>
+<p>熟悉 LEX 基本语法，掌握 Parser Generator 软件的使用；通过设<br>计、开发通用高级语言一个单词种类的词法分析程序，加深对课堂教<br>学内容（包括正规文法、正规表达式、有限自动机、NFA 到 DFA 的<br>转换、DFA 的最小化）的理解，提高词法分析方法的实践能力。 </p>
+<p>看起来很是艰涩难懂，夹杂各种名词概念，正规文法啊、正则表达式啊、自动机啥的。但仔细分析一下，就是用Parser Generator的lex写一个能识别你输入的东西，所有有时候看到任务的时候不要自己吓自己，一步步分析题目。<br>lex我也没很具体去掌握，因为老师只讲了一节课剩下的都是我课后看的。</p>
 <blockquote>
-<p>git学习使用</p>
+<p>LEX </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init   </span><br><span class="line">$ hexo install</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+<p>想简单上手的话，可以把这lex分为几个部分，当用软件创建一个新的lex时会发现代码部分用几个%分割开来，而且满屏的备注<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">%&#123;</span><br><span class="line">//这里一般时自动生成的信息</span><br><span class="line"></span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line">%name mylexer  //你的lex的名字</span><br><span class="line">&#123;</span><br><span class="line">		// place any extra class members here</span><br><span class="line">       // 一般在这定义类似于java中的全局变量</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// constructor</span><br><span class="line">&#123;</span><br><span class="line">		// place any extra initialisation code here</span><br><span class="line">       // 在这里初始化你的全局变量</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// place any declarations here</span><br><span class="line">chars  [A-Za-z]</span><br><span class="line">numbers  ([0-9])+ </span><br><span class="line">//类似于上面的规定你的文法</span><br><span class="line"></span><br><span class="line">%%</span><br><span class="line"></span><br><span class="line">/////////////////////////////////////////////////////////////////////////////</span><br><span class="line">// rules section</span><br><span class="line"></span><br><span class="line">%&#123;</span><br><span class="line">		// extract yylval for use later on in actions</span><br><span class="line">		myparser.YYSTYPE yylval = (myparser.YYSTYPE)yyparserref.yylvalref;</span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line">// place your Lex rules here</span><br><span class="line">&#123;words&#125; &#123;yylval.strValue = new String(yytext,0,yyleng);</span><br><span class="line">			return myparser.WORDS;&#125; </span><br><span class="line">&#123;numbers&#125; &#123;yylval.strValue = new String(yytext,0,yyleng);</span><br><span class="line">			yylval.value = Integer.parseInt(yylval.strValue);</span><br><span class="line">			return myparser.NUMBERS;&#125;</span><br><span class="line"></span><br><span class="line">            //根据上面你写的文法去做出相应的动作，可以上面定义下面不做操作，但不能下面写了，而上面没有。</span><br><span class="line">%%</span><br><span class="line"></span><br><span class="line">/////////////////////////////////////////////////////////////////////////////</span><br><span class="line">// programs section</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>看起来比较复杂且从没学习过的语言只是上手的话还是快的，我这里是基于java写的，所以就这个样子写出了我的编译原理实践作业，其他几项任务也类似的写完了。第二项还要用yacc</p>
 <blockquote>
-<p>随笔</p>
+<p>原理</p>
 </blockquote>
-<p>接下来也会在博客上持续更新一些入门选手的学习过程和关于自己对自己人生的一些感想。</p>
+<p>只知道怎么操作却不知道原理，是很多大学生的通病，上手的话依样画葫芦还是简单的，可以把lex写的东西归纳为词法分析器，就像你拿到一句代码，先是一个词一个词看过去，标识符，关键词，操作符之类的，在你知道这些词代表的意思后，才能进行语法分析，所以电脑其实在模仿人脑，我觉得这句话其实也没错。语法分析使用yacc来写，分别判断推入和推出，就像x=3-2,这句话怎么得到，我们要先利用词法分析知道3和2属于数字，减号等号属于操作符，然后yacc负责决定当碰到一些词时进行的操作，先得到x，然后得到等号，得到等号后就会按照你的代码接着得到数字3，得到减号时触发你写的代码，电脑知道这个时候该去用3减掉2，再赋值给x。看起来很麻烦，但我们规定好代码后，电脑的速度可比我们快的多。</p>
+<blockquote>
+<p>最近学习</p>
+</blockquote>
+<p>最近学到了LR分析，LR 分析技术是功能最强的（自底向上）语法分析技术，适用文法广，效率高，分析能力强<br>不含移进规约冲突的是LR(0),然后便于理解LR是先一步步移进，发现可规约时便提前规约。</p>
+<blockquote>
+<p>基本概念</p>
+</blockquote>
+<p>拓广文法：增加产生式 S’→S，S’作为新的开始符号</p>
+<p>在文法产生式右部的适当位置添加圆点构成项目</p>
+<blockquote>
+<p>简单理解</p>
+</blockquote>
+<p>在这里会碰到一个很好玩的东西·，这个东西有点像流水线工人一样做完一步往后移一步    A→XYZ<br>     A→·XYZ   A→X·YZ   A→XY·Z   A→XYZ·<br>小圆点一步步往后移，像上面的句子，当产生式接收到x时小圆点向后移，然后当小圆点后面是非终结符时，要写入文法中非终结符在左部的所有产生式，然后一步步往后推，直到小圆点到了最后面，利用这个小圆点就可以很轻松的画出lR分析的DFA,这大概是上了这么久编译原理以来最生动形象的吧。所以学习中碰到艰涩难懂的东西，把他形象化就会简单得多。</p>
 
     </article>
     <!-- license  -->
@@ -420,17 +435,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/04/20/third/" title="一周总结">
-                    <div class="nextTitle">一周总结</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/02/28/hello-world/" title="Hello Song">
-                    <div class="prevTitle">Hello Song</div>
+                <a href="/2019/05/11/jwb/" title="sjj的JavaWeb大作业">
+                    <div class="prevTitle">sjj的JavaWeb大作业</div>
                 </a>
             
         </li>
@@ -549,7 +559,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建博客时遇到的一些事情"><span class="toc-number">1.</span> <span class="toc-text">搭建博客时遇到的一些事情</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#大作业专栏"><span class="toc-number">1.</span> <span class="toc-text">大作业专栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">2.</span> <span class="toc-text">前言</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
